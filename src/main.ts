@@ -1,7 +1,7 @@
 import * as github from '@actions/github';
 import * as core from '@actions/core';
 import outdent from 'outdent';
-import * as blobs from './blobs';
+import { generateBlobUri } from "./blobs";
 
 async function run() {
   try {
@@ -44,14 +44,14 @@ async function run() {
       core.setFailed(`PR #${issueNumber} has no user`);
       return;
     }
-    const blob = blobs.createDescriptor(blobWidth, blobHeight);
-    const blobDataUri = blobs.toBase64(blob);
+    const blobUri = await generateBlobUri(blobWidth, blobHeight)
     const opener = pr.data.user.login;
     const body = outdent`
+      ${tagPattern}
       Thanks @${opener} for contributing opening this pull request!
       
       A special blob has been generated for you:
-      [![Blob](${blobDataUri})](${blobDataUri})
+      [![Blob](${blobUri})](${blobUri})
     `
     await octokit.rest.issues.createComment({
       ...context.repo,
