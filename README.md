@@ -1,7 +1,7 @@
 # actions-gift-blob-to-pull-request
 [![CI](https://github.com/alfredosalzillo/actions-gift-blob-to-pull-request/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/alfredosalzillo/actions-gift-blob-to-pull-request/actions/workflows/CI.yml)
 
-This action gift a beatiful unique blob to PR authors.
+This action gift a beatiful and unique blob to PR authors.
 
 ## Inputs
 
