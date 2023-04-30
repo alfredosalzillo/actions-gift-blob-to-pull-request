@@ -26,7 +26,7 @@ The github token to use to comment the PR.
 ## Example usage
 
 ```yaml
-- uses: alfredosalzillo/actions-gift-blob-to-pull-request
+- uses: alfredosalzillo/actions-gift-blob-to-pull-request@main
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   with:
