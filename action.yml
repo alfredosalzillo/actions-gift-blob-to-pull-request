@@ -1,0 +1,25 @@
+name: 'Gift Blob on Pull Request'
+branding:
+  icon: 'message-circle'
+  color: 'blue'
+description: 'Gift Blobs to contributors on Pull Request'
+inputs:
+  GITHUB_TOKEN:
+    description: 'Github token of the repository (automatically created by Github)'
+    default: ${{ github.token }}
+    required: false
+  blob_width:
+    description: 'Width of the blob'
+    default: "200"
+    required: false
+  blob_height:
+    description: 'Height of the blob'
+    default: "200"
+    required: false
+  tag:
+    description: 'The tag of the comment that will be used to identify if for the PR the blob has already been gifted'
+    default: "blob-gifted"
+    required: false
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
