@@ -23,7 +23,7 @@ jobs:
         run: |
           npm ci
           npm run build
-      - uses: alfredosalzillo/actions-gift-blob-to-pull-request@latest
+      - uses: alfredosalzillo/actions-gift-blob-to-pull-request@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
