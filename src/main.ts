@@ -10,7 +10,11 @@ async function run() {
       core.setFailed('No pull request provided');
       return;
     }
-    const githubToken = core.getInput('GITHUB_TOKEN');
+    const githubToken = process.env.GITHUB_TOKEN;
+    if (!githubToken) {
+      core.setFailed('No github token provided');
+      return;
+    }
     const blobWidth = Number(core.getInput('blob_width'));
     const blobHeight = Number(core.getInput('blob_height'));
     const tag = core.getInput('tag');
